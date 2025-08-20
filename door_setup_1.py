@@ -37,3 +37,4 @@ class DoorSetup1(RoboDoor):
 
 if __name__ == "__main__":
     door = DoorSetup1()
+    # door.run()
