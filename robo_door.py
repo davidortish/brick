@@ -32,9 +32,9 @@ class RoboDoor(ABC):
         """Closes the door"""
         self.is_closed = True
 
-    def get_status(self) -> bool:
+    def get_status(self) -> str:
         "Gets the current status of the door (True -> closed, False -> open)"
-        return self.is_closed
+        return "closed" if self.is_closed else "open"
 
     def set_status(self, is_closed: bool):
         self.is_closed = is_closed

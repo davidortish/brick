@@ -7,7 +7,7 @@ from pybricks.pupdevices import Motor
 from robo_door import RoboDoor
 
 
-class DoorSetup1(RoboDoor):
+class DoorController(RoboDoor):
     def __init__(self):
         super().__init__(
             InventorHub(),
@@ -43,9 +43,14 @@ class DoorSetup1(RoboDoor):
         with open("door_actions.log", "w"):
             pass
 
-if __name__ == "__main__":
+    @staticmethod
+    def get_log():
+        with open("door_actions.log", "r") as f:
+            return f.read()
+        
+def test():
     # init door
-    door = DoorSetup1()
+    door = DoorController()
     
     # clean log
     door.clean_log()
@@ -55,3 +60,9 @@ if __name__ == "__main__":
 
     # close door
     door.close_door()
+    
+    # check status
+    print(door.get_status())
+
+if __name__ == "__main__":
+    test()
