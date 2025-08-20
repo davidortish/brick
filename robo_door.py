@@ -11,17 +11,16 @@ class RoboDoor(ABC):
         hub: InventorHub,
         motor: Motor,
         close_position: int | float,
+        close_speed: int | float,
+        open_speed: int | float,
         is_closed: bool = False,
     ):
         self.hub = hub
         self.motor = motor
         self.close_position = close_position
+        self.close_speed = close_speed
+        self.open_speed = open_speed
         self.is_closed = is_closed
-
-    @abstractmethod
-    def run(self):
-        """Runs the robot"""
-        pass
 
     @abstractmethod
     def open_door(self):
