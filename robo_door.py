@@ -26,14 +26,16 @@ class RoboDoor(ABC):
     @abstractmethod
     def open_door(self):
         """Opens the door"""
-        pass
+        self.is_closed = False
 
     @abstractmethod
     def close_door(self):
         """Closes the door"""
-        pass
+        self.is_closed = True
 
-    @abstractmethod
     def get_status(self) -> bool:
         "Gets the current status of the door (True -> closed, False -> open)"
-        pass
+        return self.is_closed
+
+    def set_status(self, is_closed: bool):
+        self.is_closed = is_closed
